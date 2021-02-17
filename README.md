@@ -2,11 +2,14 @@
 A simple microservices project using node and react.
 
 ## Architecture
- ![Overview](images/overview.png)
 
- ![Posts service](images/posts-service.png)
+![Blog system](images/blog-system.png)
 
- ![Comments service](images/comments-service.png)
+![Services](images/services.png)
+
+![Posts service](images/posts-service.png)
+
+![Comments service](images/comments-service.png)
 
 ## References
 - https://www.udemy.com/course/microservices-with-node-js-and-react
