@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-let posts = [];
+let posts = {};
 
 app.get('/posts', (req, res) => {
   res.send(posts);
@@ -17,7 +17,7 @@ app.post('/posts', (req, res) => {
   const id = randomBytes(4).toString('hex');
   const { title } = req.body;
   const post = { id, title };
-  posts.push(post);
+  posts[id] = post;
   res.status(201).send(post);
 });
 
