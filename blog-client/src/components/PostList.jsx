@@ -11,7 +11,7 @@ function PostList() {
   }, []);
 
   const fetchPosts = async () => {
-    const res = await axios.get('http://localhost:4002/posts');
+    const res = await axios.get('http://blog-posts.com/query/posts');
     setPosts(res.data);
   };
 

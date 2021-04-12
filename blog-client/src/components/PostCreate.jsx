@@ -7,7 +7,7 @@ function PostCreate() {
   const handleCreatePost = async (event) => {
     event.preventDefault();
     await axios
-      .post('http://localhost:4000/posts', {
+      .post('http://blog-posts.com/posts', {
         title,
       })
       .then((res) => {
