@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-comments-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog-comments
+  template:
+    metadata:
+      labels:
+        app: blog-comments
+    spec:
+      containers:
+        - name: blog-comments
+          image: giulianasilvabezerra/blog-comments
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog-comments-srv
+spec:
+  selector:
+    app: blog-comments
+  # type: ClusterIP
+  ports:
+    - name: blog-comments
+      protocol: TCP
+      port: 4001
+      targetPort: 4001

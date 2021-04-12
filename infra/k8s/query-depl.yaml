@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-query-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog-query
+  template:
+    metadata:
+      labels:
+        app: blog-query
+    spec:
+      containers:
+        - name: blog-query
+          image: giulianasilvabezerra/blog-query
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog-query-srv
+spec:
+  selector:
+    app: blog-query
+  # type: ClusterIP
+  ports:
+    - name: blog-query
+      protocol: TCP
+      port: 4002
+      targetPort: 4002

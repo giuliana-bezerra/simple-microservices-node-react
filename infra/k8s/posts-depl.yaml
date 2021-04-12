@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-posts-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog-posts
+  template:
+    metadata:
+      labels:
+        app: blog-posts
+    spec:
+      containers:
+        - name: blog-posts
+          image: giulianasilvabezerra/blog-posts
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog-posts-clusterip-srv
+spec:
+  selector:
+    app: blog-posts
+  # type: ClusterIP
+  ports:
+    - name: blog-posts
+      protocol: TCP
+      port: 4000
+      targetPort: 4000
