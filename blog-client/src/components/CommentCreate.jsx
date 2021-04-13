@@ -15,7 +15,7 @@ function CommentCreate({ postId }) {
     <div>
       <form onSubmit={handleCreateComment}>
         <div className='form-group m-1'>
-          <label>New Comment</label>
+          <label>New Comment!!</label>
           <input
             value={content}
             onChange={(e) => setContent(e.target.value)}
